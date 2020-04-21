@@ -1,0 +1,18 @@
+.section_alt{
+    background-color: #F2F2F2;
+}
+.section {
+         padding-top: 40px;
+         padding-bottom: 40px;
+}
+.know-more{
+    font-size: 16px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    color: #ffffff;
+    padding:10px;
+    font-weight: bold;
+}
+
+

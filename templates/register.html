@@ -1,0 +1,90 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+<section class="page-title-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2>Register</h2>
+                    <ul class="list-inline">
+                        
+                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Page Title End -->
+
+
+            
+
+            <div class="col-lg-8">
+                <!-- Contact Form Begin -->
+                <div class="cform">
+                   
+                    <form action="register" method="POST" >
+                        
+                            {% csrf_token %}
+                            
+                              <input type="text" name="first_name" placeholder="First Name" required><br>
+                            
+<br>
+                            
+                              <input type="text" name="last_name" placeholder="Last Name" required><br>
+                            
+<br>
+                            
+                               
+                             <input type="text" name="username" placeholder="Username" required><br>
+
+                            
+                          
+                           <br>
+                            
+                              <input type="email" name="email" placeholder="EmailID" required><br>
+<br>
+                            
+                              <input type="password" name="password1" placeholder="Password" required><br>
+                            
+                          <br>
+                              
+                              <input type="password" name="password2" placeholder="RetypePassword" required><br>
+                          
+                           <br>
+                            
+                                <button type="submit" class="btn"><span>Submit</span></button>
+                      <br>
+                    
+                    </form>
+                </div>
+                <!-- Contact Form End -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Info End -->
+    <!-- Contact Info End -->
+
+    <section class="page-title-bg">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <div class="page-title text-center">
+                    {% for d in messages %}
+                    <h3>{{d}}</h3>
+                    {% endfor %}
+                      <ul class="list-inline">
+                          
+                        
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+{% endblock %}

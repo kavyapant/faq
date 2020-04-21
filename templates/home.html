@@ -1,0 +1,159 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Service Begin -->
+    <section class="pt-120 pb-90">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Title Begin -->
+                    <div class="section-title text-center">
+                        {% if user.is_authenticated %}
+                        <h2>Frequently Asked Questions</h2><br>
+                        {% else %}
+                        <h2>Frequently Asked Questions</h2><br>
+                        <h3>Login to Ask a Question</h3>
+                        {% endif %}
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+              {% for k in services %}
+                <div class="col-lg-4 col-sm-6">
+                    <!-- Single Service Begin -->
+                    <div class="single-service style--three text-center">
+                        <!-- Icon Begin -->
+                        <div class="icon">
+                            <img src="/static/img/icons/service-3.png" data-rjs="2" alt="">
+                        </div>
+                        <!-- Icon End  -->
+
+                        <!-- Content Begin -->
+                        <div class="content">
+                            <h4>{{k}}</h4>
+                            
+                            <a href="ds?qu={{k|urlencode}}" class="btn-inline">Read More</a>
+                        </div>
+                        <!-- Content End -->
+                    </div>
+                    <!-- Single Service End -->
+                </div>
+         
+                {% endfor %}
+              
+               
+                    <!-- Single Service End -->
+                </div>
+               
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service End -->
+
+    <div class="col-lg-4">
+        <!-- Sidebar Begin -->
+        <aside class="sidebar mt-5 mt-lg-0">
+         
+
+            <!-- Widget Tag Cloud Begin -->
+            <div class="widget widget_tag_cloud">
+                <div class="widget-title">
+                    <h4>Tags</h4>
+                </div>
+                
+                <div class="tagcloud">
+                    
+                
+                    {% for d in dests %}
+                    
+                    <a href="tags?query_name={{d|urlencode}}">{{d}}</a>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+            <!-- Widget Tag Cloud End -->
+
+        </aside>
+        <!-- Sidebar End -->
+    </div>
+
+<br>
+<br>
+<br>
+
+<!-- Counter Begin -->
+<section class="pt-120 pb-70 gradient-bg">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Single Counter -->
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-counter text-center text-white">
+                    <h2 class="count"><span>7</span></h2>
+                    <p>Years of experience</p>
+                </div>
+            </div>
+            <!-- End Single Counter -->
+
+            <!-- Single Counter -->
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-counter text-center text-white">
+                    <h2 class="count"><span>350</span>+</h2>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+            <!-- End Single Counter -->
+
+            <!-- Single Counter -->
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-counter text-center text-white">
+                    <h2 class="count"><span>1</span>k+</h2>
+                    <p>Project Done</p>
+                </div>
+            </div>
+            <!-- End Single Counter -->
+
+            <!-- Single Counter -->
+            <div class="col-lg-3 col-sm-6">
+                <div class="single-counter text-center text-white">
+                    <h2 class="count"><span>250</span>+</h2>
+                    <p>Giving Consultancy</p>
+                </div>
+            </div>
+            <!-- End Single Counter -->
+        </div>
+    </div>
+</section>
+<!-- Counter End -->
+
+
+
+
+
+
+
+<!-- CTA Begin -->
+<section class="gradient-bg pt-120 pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- CTA Content Begin -->
+                <div class="cta-content text-center text-white">
+                    <h2>We are a family of content <br/>
+                        strategists, designers and creative minds.</h2>
+                    <p>We are young, energetic and willing to help you grow your business. Let's take this discussion ahead over a call or at coffee?</p>
+                    <a href="#" data-toggle="modal" data-target="#appointmentModalForm" class="btn btn-white"><span>Let's Get Coffee</span></a>
+                </div>
+                <!-- CTA Content End -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CTA End -->
+
+
+{% endblock %}

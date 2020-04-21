@@ -1,0 +1,127 @@
+<!-- Header Begin -->
+<header class="header sticky-top">
+    <!-- Header Style One Begin -->
+    <div class="fixed-top header-main style--one">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-sm-4 col-8">
+                    <!-- Logo Begin -->
+                    <div class="logo">
+                        <a href="/">
+                            <img class="default-logo" src="/static/img/images/logo/lgfinal.png" data-rjs="2" alt="">
+                            <img class="sticky-logo" src="/static/img/images/logo/lgfinal2.png" data-rjs="2" alt="">
+                        </a>
+                    </div>
+                    <!-- Logo End -->
+                </div>
+
+                <div class="col-lg-9 col-sm-8 col-4">
+                    <!-- Main Menu Begin -->
+                    <div class="main-menu d-flex align-items-center justify-content-end">
+                        <ul class="nav align-items-center">
+                            {% if user.is_authenticated %}
+                            <li class="" id="bar4">
+                                <li class="" id="bar1">
+                                    <a href="/">Home</a>
+                                </li>
+                                <a href="ask">Ask a Question</a>
+                            </li>
+                            <li class="" id="bar4">
+                                <a href="accounts/logout">Logout</a>
+                            </li>
+                           
+                            {% else %}
+                            <li class="" id="bar1">
+                                <li class="" id="bar1">
+                                    <a href="/">Home</a>
+                                </li>
+                                <a href="accounts/register">Register</a>
+                            </li>
+                            <li class="" id="bar2">
+                                <a href="accounts/login">Login</a>
+                            </li>
+                            <li class="" id="bar3">
+                                <a href="{% url 'social:begin' 'facebook' %}">Login using Facebook</a>
+                            </li>
+                            <li class="" id="bar4">
+                                <a href="{% url 'social:begin' 'google-oauth2' %}">Login using Google</a>
+                            </li>
+                          {% endif %}
+                        </ul>
+                        <!-- Offcanvas Holder Trigger -->
+                        <span class="offcanvas-trigger text-right d-none d-lg-block">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        <!-- Offcanvas Trigger End -->
+                    </div>
+                    <!-- Main Menu ENd -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Style One End -->
+</header>
+<!-- Header End -->
+
+<!-- Offcanvas Begin -->
+<div class="offcanvas-overlay fixed-top w-100 h-100"></div>
+<div class="offcanvas-wrapper bg-white fixed-top h-100">
+    <!-- Offcanvas Close Button Begin -->
+    <div class="offcanvas-close position-absolute">
+        <img src="/static/img/icons/close.svg" class="svg" alt="">
+    </div>
+    <!-- Offcanvas Close Button End -->
+
+    <!-- Offcanvas Content Begin -->
+    <div class="offcanvas-content">
+        <!-- About Widget Begin -->
+        <div class="widget widget_about">
+            <div class="widget-logo text-center pt-40 pb-40">
+                <img src="/static/img/images/logo/lgfinal.png" data-rjs="2" alt="">
+            </div>
+        </div>
+        <!-- About Widget End -->
+
+
+        <!-- Contact Widget Begin -->
+        <div class="widget widget_contact_info">
+            <!-- Widget Logo Begin -->
+            <div class="widget-title">
+                <h4>Get in touch</h4>
+            </div>
+            <!-- Widget Logo End -->
+
+            <!-- Widget Content Begin -->
+            <div class="info-content">
+                <div class="single-info">
+                    <span>Office Location</span>
+                    <p>B-37, Tower B, Sector 1 Noida , UP 201301</p>
+                </div>
+                <div class="single-info">
+                    <span>Business Phone</span>
+                    <p><a href="tel:9560621461">+91 9560621461</a>
+                        <a href="tel:8424038136">+91 8424038136</a>
+                    </p>
+                </div>
+                <div class="single-info">
+                    <span>Support mail</span>
+                    <p>
+                        <a href="mailto:info@socialninjaz.com">info@socialninjaz.com</a>
+                    </p>
+                </div>
+            </div>
+            <!-- Widget Content End -->
+        </div>
+        <!-- About Widget End -->
+
+        <!-- Offcanvas Button Begin -->
+        <div class="offcanvas-btn">
+            <a href="#" data-toggle="modal" data-target="#appointmentModalForm" class="btn"><span>Get Appointment</span></a>
+        </div>
+        <!-- Offcanvas Button End -->
+    </div>
+    <!-- Offcanvas Content End -->
+</div>
+<!-- Offcanvas End -->

@@ -1,0 +1,125 @@
+
+
+<html amp lang="en">
+<head>
+
+    
+ 
+    <title>
+        FAQs
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, , minimum-scale=1, shrink-to-fit=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="Googlebot" content="follow">
+
+    <meta name="theme-color" content="#7D1935">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png">
+    <link rel="apple-touch-icon" href="/static/img/favicon.png"/>
+
+    <title class="title_main">{{ seo_title }}</title>
+    <meta class="desc_main" name="description" content="{{ seo_description }}">
+    <meta class="key_main" name="keywords" content="{{ seo_keyword }}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli%7CRubik:400,400i,500,700">
+
+    <!-- ======= Bootstrap CSS ======= -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css?ver=1.1">
+
+    <!-- ======= Font Awesome CSS ======= -->
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css?ver=1.1">
+
+    <!-- ======= Owl Carousel CSS ======= -->
+    <link rel="stylesheet" href="/static/plugins/owlcarousel/owl.carousel.min.css?ver=1.1">
+
+    <!-- ======= Magnific Popup CSS ======= -->
+    <link rel="stylesheet" href="/static/plugins/magnific-popup/magnific-popup.min.css?ver=1.1">
+
+    <!-- ======= Main Stylesheet ======= -->
+    <link rel="stylesheet" href="/static/css/style.css?ver=1.1">
+
+    <!-- ======= Custom Stylesheet ======= -->
+    <link rel="stylesheet" href="/static/css/custom.css?ver=1.1">
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5e5d48266d48ff250ad8e1ff/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71935179-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-71935179-1');
+    </script>
+
+</head>
+<body>
+    <!-- Preloader Begin -->
+    <div class='preloader w-100 h-100 position-fixed'>
+        <div class="loader">
+            <img class="icon" src="/static/img/favicon.png" alt="">
+        </div>
+    </div>
+
+    <!-- Preloader End -->
+
+    {% include "header2.html" %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include "footer.html" %}
+
+    <!-- ======= jQuery Library ======= -->
+    <script src="/static/js/jquery.min.js"></script>
+
+    <!-- ======= Bootstrap Bundle JS ======= -->
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+
+    <!-- =======  Mobile Menu JS ======= -->
+    <script src="/static/js/menu.min.js"></script>
+
+    <!-- ======= Waypoints JS ======= -->
+    <script src="/static/plugins/waypoints/jquery.waypoints.min.js"></script>
+
+    <!-- ======= Counter Up JS ======= -->
+    <script src="/static/plugins/waypoints/jquery.counterup.min.js"></script>
+
+    <!-- ======= Owl Carousel JS ======= -->
+    <script src="/static/plugins/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- ======= Isotope JS ====== -->
+    <script src="/static/plugins/isotope/isotope.pkgd.min.js"></script>
+
+    <!-- ======= Magnific Popup JS ======= -->
+    <script src="/static/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- ======= Countdown JS ======= -->
+    <script src="/static/plugins/countdown/countdown.min.js"></script>
+
+    <!-- ======= Retina JS ======= -->
+    <script src="/static/plugins/retinajs/retina.min.js"></script>
+
+    <!-- ======= Google API ======= -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjkssBA3hMeFtClgslO2clWFR6bRraGz0"></script>
+
+    <!-- ======= Main JS ======= -->
+    <script src="/static/js/main.js"></script>
+
+    <!-- ======= Custom JS ======= -->
+    <script src="/static/js/custom.js"></script>
+    {% block js %}
+    {% endblock %}
+</body></html>
