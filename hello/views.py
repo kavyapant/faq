@@ -8,13 +8,16 @@ def home(request):
     p=[]
     a=[]
     m=[]
+    l= Destination.objects.exclude(tags__exact='')
+    for d in l:
+        
+
+        a=(d.tags).split(",")
+        print(a)
+        for ele in a:
+            if ele not in p:
+                p.append(ele)
     
-    for d in dests:
-        if d.tags is not None:
-            a=(d.tags).split(",")
-            for ele in a:
-                if ele not in p:
-                    p.append(ele)
     for pp in yo:
         if pp.cat not in m:
             m.append(pp.cat)
