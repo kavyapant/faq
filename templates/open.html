@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base3.html" %}
 
 {% block content %}
 
@@ -35,6 +35,7 @@
       <button type="submit" class="btn">Login</button>   
       <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn" >Login using Google</a><br>
       <a href="{% url 'social:begin' 'facebook' %}" class="btn">Login using Facebook</a><br>
+      <p> Invalid Credentials,Please try again.</p>
       <a href="accounts/register">New User? Register Here</a><br>
 
       <button type="button"  onclick="closeForm()">Close</button>
@@ -87,7 +88,6 @@
                                 </div>
                                 <!-- Widget Tag Cloud End -->
                                 
-                                
                                 </aside>
                                 <!-- Sidebar End -->
                                 </div>
@@ -95,47 +95,7 @@
                         </div>
                         <!-- End Single Contact Info -->
 
-                        <form action="ask" method="POST" >
-                        
-                            {% csrf_token %}
-                            
-            
-                            <h3> What can we help you with?</h3>
-                            <div class="col-md-4">
-                          
-                            <textarea name="question" rows="5" cols="25" placeholder="Question" wrap="physical" required></textarea><br>
-                            </div>
-                            <br>
-                        
-                            
-                                <select id="category" name="c" size="1" onchange="makeSubmenu(this.value)" required>
-                                    <option value="" disabled selected>Choose Category</option>
-                                    <option>DigitalPresence</option>
-                                    <option>Development</option>
-                                    <option>Marketing</option>
-                                    <option>Branding</option>
-                                    </select><br>
-                                
-                                
-                               <br>
-                                
-                                <select id="categorySelect" name="sc" size="1" required>
-                                    <option value="" disabled selected>Choose Subcategory</option>
-                                    <option></option>
-                                    </select>
-                                    <br>
-                            
-                                
-                                <br>
-                            
-                               
-                                <div class="col-md-4">
-                                    <button type="submit" class="btn"><span>Submit</span></button>
-                                </div>    
-                         
-                            
-                        
-                    </form>
+                       
 
 
 
@@ -171,7 +131,15 @@
                    
                           {% endfor %}
                         
-                     
+                         
+                              <!-- Single Service End -->
+                          </div>
+            
+                <!-- Section Title End -->
+
+                <!-- About Feature List Begin -->
+                
+                   
                         </div>
                     </form>
                 </div>
@@ -184,36 +152,6 @@
     <!-- Contact Info End -->
 
   
-    <script type="text/javascript">
-        var subcategory = {
-        DigitalPresence: ["Search Engine Marketing","Search Engine Optimization","Digital Consultancy","Brand Reputation Management","Business Consultancy"],
-        Development: ["Web Development","Application Development","Software Development","Block Chain Development","UI/UX Development"],
-        Branding: ["Branding Services"],
-        Marketing: ["Mobile App Marketing","Mobile Game Marketing","Social Media Marketing","Conversion rate Marketing","Content Marketing","Email Marketing"],
-        }
 
-        function makeSubmenu(value) {
-            if (value.length == 0) document.getElementById("categorySelect").innerHTML = "<option></option>";
-            else {
-                var citiesOptions = "";
-                for (categoryId in subcategory[value]) {
-                    citiesOptions += "<option>" + subcategory[value][categoryId] + "</option>";
-                }
-                document.getElementById("categorySelect").innerHTML = citiesOptions;
-            }
-        }
-
-        function displaySelected() {
-            var country = document.getElementById("category").value;
-            var city = document.getElementById("categorySelect").value;
-            alert(country + "\n" + city);
-        }
-
-        function resetSelection() {
-            document.getElementById("category").selectedIndex = 0;
-            document.getElementById("categorySelect").selectedIndex = 0;
-        }
-    </script>
-             
 
 {% endblock %}

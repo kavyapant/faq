@@ -1,124 +1,117 @@
-
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Testimonial Begin -->
 
+<section class="page-title-bg">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <!-- Section Title Begin -->
-                <div class="section-title text-center">
-                    {% if user.is_authenticated %}
+                <div class="page-title text-center">
                     <h2>Frequently Asked Questions</h2><br>
-                    <h3>{{sent2}}</h3><br>
-                    {% else %}
-                    <h2>Frequently Asked Questions</h2><br>
-                    <h3>{{sent2}}</h3><br>
-                    <h3>Login to Ask a Question</h3><br>   
-                   {% endif %}
+                    
+                        
+                        
+                     <h3>  {{sent2}}</h3>
+                    
                 </div>
-                <!-- Section Title End -->
             </div>
-        </div> 
+        </div>
     </div>
-<!-- Testimonial End -->
+</section>
+<!-- Page Title End -->
+
+<!-- Contact Info Begin -->
+<section class="pt-80 pb-120">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <!-- Section Title Begin -->
-                
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- Contact Info Begin -->
+                <div class="contact-info">
+                    {% for m in camp %}
+                    <h3>{{m.heading1}}</h3>
+                    <p>{{m.heading2}}</p>
+                     {% endfor %}
+                    <div class="row">
+                        <!-- Single Contact Info -->
+                        <div class="col-sm-6 col-lg-12 single-contact-info media align-items-center">
+                           
+                        <form action="camp_qs" method="POST" >
+                        
+                            {% csrf_token %}
+                            
+            
+                            
+                            <div class="col-md-4">
+                          
+                            
+                                <textarea name="question" rows="5" cols="25" placeholder="Question" wrap="physical" required></textarea><br>
+                                <input type="text" placeholder="Phone" name="phone" size="25" required>
+                            </div>
+
+                            <br>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn"><span>Submit</span></button>
+                            </div>   
+                        </div>
+                        <!-- End Single Contact Info -->
+
+                        <!-- Single Contact Info -->
+                        <div class="col-sm-6 col-lg-12 single-contact-info media align-items-center">
+                           
+                        </div>
+                        <!-- End Single Contact Info -->
+
+                        <!-- Single Contact Info -->
+                        <div class="col-sm-6 col-lg-12 single-contact-info media align-items-center">
+                          
+                            
+                            
+                        </div>
+                        <!-- End Single Contact Info -->
+
+
+
+                    </div>
+                </div>
+                <!-- Contact Info End -->
+            </div>
+
+            <div class="col-lg-8">
+                <!-- Contact Form Begin -->
+                <div class="cform">
                     {% for d in sent %}
                     {% if d.answer is not None  %}
                     <h2>{{d.question}}<h2>
+                        <br>
+                        <br>
             
                 <!-- Section Title End -->
 
                 <!-- About Feature List Begin -->
                 <ul class="list-unstyled list-check">
-                    <li><i class="fa fa-check" aria-hidden="true"></i> <p>{{d.answer}}</p></li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> <p>{{d.answer|truncatechars:90}}</p></li>
                   
                 </ul>
                 <br>
+                <a href="answer?qu={{d.question|urlencode}}" class="banner-btn btn"><span>Read More</span></a>
                 <!-- About Feature List End -->
+                <hr>
+                <br>
                 {% endif %}
                 {% endfor %}
-            </div>
-          
-        </div>
-    </div>
-
-<br>
-<br>
-
-<!-- Counter Begin -->
-<section class="pt-120 pb-70 gradient-bg">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Single Counter -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-counter text-center text-white">
-                    <h2 class="count"><span>7</span></h2>
-                    <p>Years of experience</p>
+                   
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <!-- End Single Counter -->
-
-            <!-- Single Counter -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-counter text-center text-white">
-                    <h2 class="count"><span>350</span>+</h2>
-                    <p>Happy Clients</p>
-                </div>
-            </div>
-            <!-- End Single Counter -->
-
-            <!-- Single Counter -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-counter text-center text-white">
-                    <h2 class="count"><span>1</span>k+</h2>
-                    <p>Project Done</p>
-                </div>
-            </div>
-            <!-- End Single Counter -->
-
-            <!-- Single Counter -->
-            <div class="col-lg-3 col-sm-6">
-                <div class="single-counter text-center text-white">
-                    <h2 class="count"><span>250</span>+</h2>
-                    <p>Giving Consultancy</p>
-                </div>
-            </div>
-            <!-- End Single Counter -->
-        </div>
-    </div>
-</section>
-<!-- Counter End -->
-
-
-
-
-
-
-
-<!-- CTA Begin -->
-<section class="gradient-bg pt-120 pb-120">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <!-- CTA Content Begin -->
-                <div class="cta-content text-center text-white">
-                    <h2>We are a family of content <br/>
-                        strategists, designers and creative minds.</h2>
-                    <p>We are young, energetic and willing to help you grow your business. Let's take this discussion ahead over a call or at coffee?</p>
-                    <a href="#" data-toggle="modal" data-target="#appointmentModalForm" class="btn btn-white"><span>Let's Get Coffee</span></a>
-                </div>
-                <!-- CTA Content End -->
+                <!-- Contact Form End -->
             </div>
         </div>
     </div>
 </section>
-<!-- CTA End -->
+<!-- Contact Info End -->
+    <!-- Contact Info End -->
+
+  
 
 
 {% endblock %}

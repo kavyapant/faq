@@ -11,7 +11,7 @@
                     
                         
                         
-                     <h3>  {{dests}}</h3>
+                     <h3>  {{sent2}}</h3>
                     
                 </div>
             </div>
@@ -45,8 +45,12 @@
                           
                             
                                 <textarea name="question" rows="5" cols="25" placeholder="Question" wrap="physical" required></textarea><br>
-                                <input type="text" placeholder="Phone" name="phone" size="25" required>
                             </div>
+                            <div class="col-md-4">
+                             <input type="text" placeholder="Phone" name="phone" size="25"required>
+
+                                      
+                        </div>
 
                             <br>
                             <div class="col-md-4">
@@ -79,7 +83,7 @@
             <div class="col-lg-8">
                 <!-- Contact Form Begin -->
                 <div class="cform">
-                    {% for d in dests2 %}
+                    {% for d in sent %}
                     {% if d.answer is not None  %}
                     <h2>{{d.question}}<h2>
                         <br>
@@ -89,11 +93,23 @@
 
                 <!-- About Feature List Begin -->
                 <ul class="list-unstyled list-check">
-                    <li><i class="fa fa-check" aria-hidden="true"></i> <p>{{d.answer|truncatechars:90}}</p></li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> <p>{{d.answer}}</p></li>
                   
                 </ul>
                 <br>
-                <a href="answer?qu={{d.question|urlencode}}" class="banner-btn btn"><span>Read More</span></a>
+                 <div class="widget widget_social_icon">
+                            <ul class="social_icon_list list-inline">
+                                <li>
+                                    <a href="http://www.facebook.com/sharer.php?u=#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href="http://twitter.com/share?url=#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                
+                                
+                               
+                            </ul>
+                        </div>
                 <!-- About Feature List End -->
                 <hr>
                 <br>
