@@ -1,7 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<style>
+    .box select {
+        background-color: #ffe6f2;
+        color: #ff3399;
+        padding: 12px;
+        width: 250px;
+        border: none;
+        font-size: 20px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        -webkit-appearance: button;
+        appearance: button;
+        outline: none;
+      }
+      
+      .box::before {
+        content: "\f13a";
+        font-family: FontAwesome;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20%;
+        height: 100%;
+        text-align: center;
+        font-size: 28px;
+        line-height: 45px;
+        color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+      }
+      
+      .box:hover::before {
+        color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      
+      .box select option {
+        padding: 30px;
+      }
+      .b{
+        border: 5px solid  #ff3399;
+        padding-top: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+        padding-left: 25px;
+        
+      }
+</style>
 <section class="page-title-bg">
     <div class="container">
         <div class="row">
@@ -63,6 +109,7 @@
             <div class="col-lg-4">
                 <!-- Contact Info Begin -->
                 <div class="contact-info">
+                    <div class="b">
                     <h3>Want to Know More? </h3>
                     <p>Select a Category to Read more Posts:</p>
                         
@@ -70,7 +117,7 @@
                     <div class="row">
                         <!-- Single Contact Info -->
                         <div class="col-sm-6 col-lg-12 single-contact-info media align-items-center">
-                            <div class="col-lg-4">
+                            
                                 <!-- Sidebar Begin -->
                                 <aside class="sidebar mt-5 mt-lg-0">
                                 
@@ -86,14 +133,18 @@
                                 </div>
                                 </div>
                                 <!-- Widget Tag Cloud End -->
-                                
+                           
                                 
                                 </aside>
                                 <!-- Sidebar End -->
-                                </div>
                                 
+                          </div>    
                         </div>
+                    </div>
+                    <br>
+                    <br>
                         <!-- End Single Contact Info -->
+                        <div class="b">
                         {% if user.is_authenticated %}
                         <form action="ask" method="POST" >
                         
@@ -103,12 +154,12 @@
                             <h3> What can we help you with?</h3>
                             <div class="col-md-4">
                           
-                            <textarea name="question" rows="5" cols="25" placeholder="Question" wrap="physical" required></textarea><br>
+                            <textarea name="question" rows="5" cols="23" placeholder="Question" wrap="physical" required></textarea><br>
                             </div>
                             <br>
                         
-                            
-                                <select id="category" name="c" size="1" onchange="makeSubmenu(this.value)" required>
+                            <div class="box">
+                                <select id="category" name="c" size="1" onchange="makeSubmenu(this.value)"  required>
                                     <option value="" disabled selected>Choose Category</option>
                                     <option>DigitalPresence</option>
                                     <option>Development</option>
@@ -125,7 +176,7 @@
                                     </select>
                                     <br>
                             
-                                
+                                </div> 
                                 <br>
                             
                                
@@ -136,13 +187,14 @@
                             
                         
                     </form>
+                    </div>
 
               {% endif %}
 
                     </div>
                 </div>
                 <!-- Contact Info End -->
-            </div>
+            
 
             <div class="col-lg-8">
                 <!-- Contact Form Begin -->

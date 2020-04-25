@@ -1,13 +1,14 @@
 from django.shortcuts import render,redirect
-from .models import Question,Service,Campaign,Customer_query
+from .models import Question,Category,Campaign,Subcategory,Customer_query
 
 # Create your views here.
 def home(request):
     dests=Question.objects.all()
-    yo=Service.objects.all()
+    yo=Subcategory.objects.all()
     p=[]
     a=[]
     m=[]
+    
     l= Question.objects.exclude(tags__exact='')
     
     for d in l:
@@ -20,11 +21,15 @@ def home(request):
                 if ele not in p:
                     p.append(ele)
    
+             
+            
+               
+   
     
 
     for pp in yo:
-        if pp.cat not in m:
-            m.append(pp.cat)
+        if pp.cate not in m:
+            m.append(pp.cate)
             
     return render(request,'home.html',{'services':m,'dests':p})
 def tags(request):
@@ -63,11 +68,18 @@ def dp(request):
 
 def ds(request):
     query = request.GET.get('qu')
-    k=Service.objects.all()
+    print(query)
+    k=Subcategory.objects.all()
+    
     m=[]
     for pp in k:
-        if pp.subcat not in m and pp.cat==query:
+      
+        if pp not in m and pp.cate.cat == query:
             m.append(pp.subcat)
+            
+            
+        
+            
     return render(request,'ds.html',{'sent':query,'sent2':m})
 
 def wd(request):
@@ -79,17 +91,18 @@ def wd(request):
     for var in lol:
         c.append(var)
     for pp in k:
-        if pp.subcategory==query:
+        if pp.subcategory.subcat==query:
             m.append(pp)
     return render(request,'wd.html',{'sent':m,'sent2':query,'camp':c})
 
 
 def open(request):
     dests=Question.objects.all()
-    yo=Service.objects.all()
+    yo=Subcategory.objects.all()
     p=[]
     a=[]
     m=[]
+    
     l= Question.objects.exclude(tags__exact='')
     
     for d in l:
@@ -102,11 +115,15 @@ def open(request):
                 if ele not in p:
                     p.append(ele)
    
+             
+            
+               
+   
     
 
     for pp in yo:
-        if pp.cat not in m:
-            m.append(pp.cat)
+        if pp.cate not in m:
+            m.append(pp.cate)
             
     return render(request,'open.html',{'services':m,'dests':p})
 

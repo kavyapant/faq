@@ -24,9 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2+5wf%o6l4908=@$qtk@vud)&ezu8*5=31(uu#n6c&c3e1f+22'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['django-new.herokuapp.com']
+DEBUG = True
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -40,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    'django_social_share'
+    'django_social_share',
+    
+     
 ]
 
 MIDDLEWARE = [

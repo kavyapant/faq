@@ -1,6 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    .b{
+        border: 5px solid  #ff3399;
+        padding-top: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+        padding-left: 25px;
+        
+    }
+    .a {
+    
+        
+        border: 3px solid  #ff3399;
+        
+        border-color: #ff3399;
+        background-color:white;
+        border-radius:10px;
+      
+    
+    }
+</style>
 
 <section class="page-title-bg">
     <div class="container">
@@ -27,6 +48,7 @@
             <div class="col-lg-4">
                 <!-- Contact Info Begin -->
                 <div class="contact-info">
+                    <div class="b">
                     {% for m in camp %}
                     <h3>{{m.heading1}}</h3>
                     <p>{{m.heading2}}</p>
@@ -34,7 +56,7 @@
                     <div class="row">
                         <!-- Single Contact Info -->
                         <div class="col-sm-6 col-lg-12 single-contact-info media align-items-center">
-                           
+                          
                         <form action="camp_qs" method="POST" >
                         
                             {% csrf_token %}
@@ -43,29 +65,26 @@
                             
                             <div class="col-md-4">
                           
-                            
-                                <textarea name="question" rows="5" cols="25" placeholder="Question" wrap="physical" required></textarea><br>
-                                <input type="text" placeholder="Phone" name="phone" size="25" required>
+                            <div>
+                               
+                                <textarea name="question" class="a" rows="5" cols="25" placeholder="Question"  required></textarea><br>
+                            </div>
+                            <br>
+                            <div>
+                                <input type="text" class="a" placeholder="Phone" name="phone" size="25" required>
+                                </div>
+                                
                             </div>
 
                             <br>
                             <div class="col-md-4">
                                 <button type="submit" class="btn"><span>Submit</span></button>
-                            </div>   
+                            </div>  
+                            </form> 
+                        
                         </div>
-                        <!-- End Single Contact Info -->
 
-                        <!-- Single Contact Info -->
-                        <div class="col-sm-6 col-lg-12 single-contact-info media align-items-center">
-                           
-                        </div>
-                        <!-- End Single Contact Info -->
-
-                        <!-- Single Contact Info -->
-                        <div class="col-sm-6 col-lg-12 single-contact-info media align-items-center">
-                          
-                            
-                            
+                         
                         </div>
                         <!-- End Single Contact Info -->
 
