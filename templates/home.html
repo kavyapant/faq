@@ -144,8 +144,9 @@
                     <br>
                     <br>
                         <!-- End Single Contact Info -->
-                        <div class="b">
                         {% if user.is_authenticated %}
+                        <div class="b">
+                       
                         <form action="ask" method="POST" >
                         
                             {% csrf_token %}
@@ -161,10 +162,10 @@
                             <div class="box">
                                 <select id="category" name="c" size="1" onchange="makeSubmenu(this.value)"  required>
                                     <option value="" disabled selected>Choose Category</option>
-                                    <option>DigitalPresence</option>
-                                    <option>Development</option>
-                                    <option>Marketing</option>
-                                    <option>Branding</option>
+                                    {% for s in sent %}
+                                    <option>{{s.cat}}</option>
+                                    
+                                    {% endfor %}
                                     </select><br>
                                 
                                 
@@ -237,34 +238,17 @@
 
   
     <script type="text/javascript">
-        var subcategory = {
-        DigitalPresence: ["Search Engine Marketing","Search Engine Optimization","Digital Consultancy","Brand Reputation Management","Business Consultancy"],
-        Development: ["Web Development","Application Development","Software Development","Block Chain Development","UI/UX Development"],
-        Branding: ["Branding Services"],
-        Marketing: ["Mobile App Marketing","Mobile Game Marketing","Social Media Marketing","Conversion rate Marketing","Content Marketing","Email Marketing"],
-        }
+    
 
         function makeSubmenu(value) {
-            if (value.length == 0) document.getElementById("categorySelect").innerHTML = "<option></option>";
-            else {
-                var citiesOptions = "";
-                for (categoryId in subcategory[value]) {
-                    citiesOptions += "<option>" + subcategory[value][categoryId] + "</option>";
-                }
-                document.getElementById("categorySelect").innerHTML = citiesOptions;
+          
+
+
+window.location.replace("ask?qu="+encodeURIComponent(value));
             }
-        }
+        
 
-        function displaySelected() {
-            var country = document.getElementById("category").value;
-            var city = document.getElementById("categorySelect").value;
-            alert(country + "\n" + city);
-        }
-
-        function resetSelection() {
-            document.getElementById("category").selectedIndex = 0;
-            document.getElementById("categorySelect").selectedIndex = 0;
-        }
+      
     </script>
              
 

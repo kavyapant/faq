@@ -3,11 +3,15 @@ from .models import Question,Category,Campaign,Subcategory,Customer_query
 
 # Create your views here.
 def home(request):
-    dests=Question.objects.all()
+    dests=Category.objects.all()
     yo=Subcategory.objects.all()
     p=[]
     a=[]
     m=[]
+    g=[]
+    for var in dests:
+        if var.category not in g:
+            g.append(var.category)
     
     l= Question.objects.exclude(tags__exact='')
     
@@ -31,7 +35,8 @@ def home(request):
         if pp.cate not in m:
             m.append(pp.cate)
             
-    return render(request,'home.html',{'services':m,'dests':p})
+    return render(request,'home.html',{'services':m,'dests':p,'sent':dests})
+
 def tags(request):
     query = request.GET.get('query_name')
     dests=Question.objects.all()
@@ -150,4 +155,49 @@ def camp_qs(request):
     return redirect(request.META['HTTP_REFERER'])
 
         
+
+def ask(request):
+    dests=Question.objects.all()
+    yo=Subcategory.objects.all()
+    p=[]
+    a=[]
+    m=[]
+    g=[]
+    query=request.GET['qu']
+    
+    z=[]
+    r=[]
+    
+    for var2 in yo:
+        if var2.cate.cat==query and var2.subcat not in m:
+            z.append(var2.subcat)
+    for var in yo:
+        if var.cate.cat not in g and var.cate.cat==query:
+            g.append(var.cate.cat)
+    for var3 in yo:
+        if var3.cate.cat!=query:
+            r.append(var3.cate.cat)
+
+    l= Question.objects.exclude(tags__exact='')
+    
+    for d in l:
+        if d.tags is not None:  
+            print(d.tags)
+            a=(d.tags).split(",")
+
+             
+            for ele in a:
+                if ele not in p:
+                    p.append(ele)
    
+             
+            
+               
+   
+    
+
+    for pp in yo:
+        if pp.cate not in m:
+            m.append(pp.cate)
+            
+    return render(request,'ask.html',{'services':m,'dests':p,'sent':g,'sent2':z,'sent3':r})

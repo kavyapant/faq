@@ -10,6 +10,8 @@ urlpatterns = [
     path('open',views.open,name='open'),
     path(r'answer',views.answer,name='answer'),
     path('camp_qs',views.camp_qs,name='camp_qs'),
+    path(r'ask',views.ask,name='ask'),
+
     
     
 
