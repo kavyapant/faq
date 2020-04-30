@@ -4,6 +4,7 @@ from .models import Question,Category,Campaign,Subcategory,Customer_query
 # Create your views here.
 def home(request):
     dests=Category.objects.all()
+    
     yo=Subcategory.objects.all()
     p=[]
     a=[]
@@ -35,7 +36,7 @@ def home(request):
         if pp.cate not in m:
             m.append(pp.cate)
             
-    return render(request,'home.html',{'services':m,'dests':p,'sent':dests})
+    return render(request,'home.html',{'services':m,'dests':p,'sent':dests,'sent2':yo})
 
 def tags(request):
     query = request.GET.get('query_name')
@@ -52,20 +53,23 @@ def tags(request):
 
 
     
-def ask(request):
+def ask_submit(request):
     if request.method=='POST':
+       
         question=request.POST['question']
         category=request.POST['c']
         subcategory=request.POST['sc']
-        if category == 'DigitalPresence':
-            category='Digital Presence'
+        g=Category.objects.get(cat=category)
+        h=Subcategory.objects.get(subcat=subcategory)
+        
+        
         
 
 
-        d=Question(question=question,category=category,subcategory=subcategory)
+        d=Question(question=question,category=g,subcategory=h)
 
         d.save();
-        return redirect('/')
+    return redirect('/')
 
     
 def dp(request):
@@ -156,48 +160,4 @@ def camp_qs(request):
 
         
 
-def ask(request):
-    dests=Question.objects.all()
-    yo=Subcategory.objects.all()
-    p=[]
-    a=[]
-    m=[]
-    g=[]
-    query=request.GET['qu']
-    
-    z=[]
-    r=[]
-    
-    for var2 in yo:
-        if var2.cate.cat==query and var2.subcat not in m:
-            z.append(var2.subcat)
-    for var in yo:
-        if var.cate.cat not in g and var.cate.cat==query:
-            g.append(var.cate.cat)
-    for var3 in yo:
-        if var3.cate.cat!=query:
-            r.append(var3.cate.cat)
 
-    l= Question.objects.exclude(tags__exact='')
-    
-    for d in l:
-        if d.tags is not None:  
-            print(d.tags)
-            a=(d.tags).split(",")
-
-             
-            for ele in a:
-                if ele not in p:
-                    p.append(ele)
-   
-             
-            
-               
-   
-    
-
-    for pp in yo:
-        if pp.cate not in m:
-            m.append(pp.cate)
-            
-    return render(request,'ask.html',{'services':m,'dests':p,'sent':g,'sent2':z,'sent3':r})

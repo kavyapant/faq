@@ -147,7 +147,7 @@
                         {% if user.is_authenticated %}
                         <div class="b">
                        
-                        <form action="ask" method="POST" >
+                        <form action="ask_submit" method="POST" >
                         
                             {% csrf_token %}
                             
@@ -160,7 +160,7 @@
                             <br>
                         
                             <div class="box">
-                                <select id="category" name="c" size="1" onchange="makeSubmenu(this.value)"  >
+                                <select id="category" name="c" size="1"  >
                                     {% for s in sent %}
                                     <option value="" disabled selected>{{s}}</option>
 
@@ -239,23 +239,10 @@
         </div>
     </div>
 </section>
-<!-- Contact Info End -->
-    <!-- Contact Info End -->
+
 
   
-    <script type="text/javascript">
-    
-
-        function makeSubmenu(value) {
-          
-
-
-window.location.replace("ask?qu="+encodeURIComponent(value));
-            }
-        
-
-      
-    </script>
+  
              
 
 {% endblock %}

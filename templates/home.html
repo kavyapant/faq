@@ -70,7 +70,7 @@
     <form action="accounts/login" class="form-container" method="POST">
         {% csrf_token %}
     
-      <h1>Login</h1>
+      <h2>Login</h2>
   
       
       <input type="text" placeholder="Username" name="username" required>
@@ -81,7 +81,7 @@
       <button type="submit" class="btn">Login</button>   
       <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn" >Login using Google</a><br>
       <a href="{% url 'social:begin' 'facebook' %}" class="btn">Login using Facebook</a><br>
-      <a href="accounts/register">New User? Register Here</a><br>
+      <a href="accounts/register">New User? Register Here.</a><br>
 
       <button type="button"  onclick="closeForm()">Close</button>
     
@@ -147,7 +147,7 @@
                         {% if user.is_authenticated %}
                         <div class="b">
                        
-                        <form action="ask" method="POST" >
+                        <form action="ask_submit" method="POST" >
                         
                             {% csrf_token %}
                             
@@ -160,7 +160,7 @@
                             <br>
                         
                             <div class="box">
-                                <select id="category" name="c" size="1" onchange="makeSubmenu(this.value)"  required>
+                                <select id="category" name="c" size="1"  required>
                                     <option value="" disabled selected>Choose Category</option>
                                     {% for s in sent %}
                                     <option>{{s.cat}}</option>
@@ -173,7 +173,9 @@
                                 
                                 <select id="categorySelect" name="sc" size="1" required>
                                     <option value="" disabled selected>Choose Subcategory</option>
-                                    <option></option>
+                                    {% for h in sent2 %}
+                                    <option>{{h.subcat}}</option>
+                                    {% endfor %}
                                     </select>
                                     <br>
                             
@@ -236,20 +238,7 @@
 <!-- Contact Info End -->
     <!-- Contact Info End -->
 
-  
-    <script type="text/javascript">
-    
-
-        function makeSubmenu(value) {
-          
-
-
-window.location.replace("ask?qu="+encodeURIComponent(value));
-            }
-        
-
-      
-    </script>
+ 
              
 
 {% endblock %}

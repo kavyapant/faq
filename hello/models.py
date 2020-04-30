@@ -22,7 +22,6 @@ class Question(models.Model):
     answer=models.TextField(null=True,blank=True)
     category=models.ForeignKey(Category,null=True, related_name='category',on_delete=models.CASCADE)
     subcategory=models.ForeignKey(Subcategory,null=True, related_name='subcategory',on_delete=models.CASCADE)
-    question=models.TextField(null=True,blank=True) 
     tags=models.TextField(null=True,blank=True)  
    
 
